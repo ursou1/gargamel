@@ -1,0 +1,60 @@
+﻿<Window x:Class="Savanna.ViewContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Savanna"
+        mc:Ignorable="d"
+        Title="ViewContact" Height="450" Width="800">
+    <Grid>
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListView VerticalAlignment="Top" Grid.Column="1" ItemsSource="{Binding Human}" SelectedItem="{Binding SelectedHuman}">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding GetTypeName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView VerticalAlignment="Bottom" Grid.Column="1" ItemsSource="{Binding Human}" SelectedItem="{Binding SelectedHuman}">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Ник" DisplayMemberBinding="{Binding Nick}"/>
+                    <GridViewColumn Header="Ссылка" DisplayMemberBinding="{Binding ?}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel >
+            <TextBlock Text="Имя"/>
+            <TextBox Name="Имя" Text="{Binding Name}"/>
+            <TextBlock Text="Номер"/>
+            <TextBox Name="Номер" Text="{Binding Number}"/>
+            <Button Content=" Добаваить номер" Command="{Binding CreateNumber}"/>
+            <ComboBox Text=""/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Никнейм"/>
+            <TextBox Name="Никнейм" Text="{Binding NickName}"/>
+            <TextBlock Text="Ссылка"/>
+            <TextBox Name="Ссылка" Text="{Binding Link?}"/>
+            <Button HorizontalAlignment="Right" Content=" Добавить" Command="{Binding CreateLink? }"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Content="Отмена" Command="{Binding Cancellation}"/>
+            <Button Content="Сохранить" Command="{Binding Save}"/>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>
